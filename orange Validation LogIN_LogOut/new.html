@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>this is for everyone</p>
+    <p id="zaid"></p>
+    <button style="display: none;" id="log">Log out</button>
+    
+    <script>
+        document.getElementById("log").addEventListener("click", function() {
+            sessionStorage.removeItem("userName");
+            document.getElementById("zaid").innerHTML = "";
+            this.style.display = "none";
+        });
+
+        function show() {
+            var userName = sessionStorage.getItem("userName");
+            if (userName) {
+                document.getElementById("log").style.display = "block";
+                document.getElementById("zaid").innerHTML = "Hello " + userName;
+            }
+        }
+
+        window.onload = function() {
+            show();
+        }
+    </script>
+</body>
+</html>
